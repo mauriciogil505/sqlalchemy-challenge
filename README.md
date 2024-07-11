@@ -62,7 +62,7 @@ Tip:
 
 python
 Copy code
-# Import the dependencies.
+### Import the dependencies.
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
@@ -72,25 +72,25 @@ import datetime as dt
 import numpy as np
 
 #################################################
-# Database Setup
+### Database Setup
 #################################################
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///hawaii.sqlite"
 db = SQLAlchemy(app)
 
-# Reflect an existing database into a new model
+### Reflect an existing database into a new model
 Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 
-# Reflect the tables
+### Reflect the tables
 Measurement = Base.classes.measurement
 Station = Base.classes.station
 
-# Create our session (link) from Python to the DB
+### Create session (link) from Python to the Database
 session = Session(bind=db.engine)
 
 #################################################
-# Flask Routes
+### Flask Routes
 #################################################
 
 @app.route("/")
